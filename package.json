@@ -1,0 +1,61 @@
+{
+  "name": "tokes-asset-management",
+  "version": "0.0.1",
+  "description": "Manage asset automated distribution",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tksventures/ecosystem"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --ext .js ./",
+    "test": "jest --verbose --forceExit",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "full-test": "npm run lint && npm run test"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/__tests__/setupTests.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/__tests__/setupTests.js",
+      "<rootDir>/__tests__/models/model.mock.js",
+      "<rootDir>/__tests__/routes/mocks.js"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "@waves/waves-transactions": "3.23.0",
+    "@waves/signature-generator": "5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
+    "axios-mock-adapter": "^1.17.0",
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^5.0.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
+    "json-loader": "^0.5.7",
+    "nodemon": "^1.19.4"
+  }
+}
