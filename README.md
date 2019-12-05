@@ -17,6 +17,7 @@ All definitions should be placed in the `.env` file or added as environment vari
 | Key | Description |
 | --- | --- |
 | `WAVES_NODE` | Base Rest API URL of a synced waves node |
+| `TOKEN_NAME` | Name of the token (cosmetic/informational, does not require accuracy) |
 | `TOKEN_ASSET_ID` | The Asset ID of the token you wish to snapshot |
 | `TARGET_ASSET_ID` | The Asset ID of the token you wish to distribute  |
 | `DISTR_MULTIPLIER` | A factor of the old token amount for the new distribution |
