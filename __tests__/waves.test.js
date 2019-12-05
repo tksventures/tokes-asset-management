@@ -8,8 +8,8 @@ const mockDistribution = {
 
 const mockDistributionResponse = {
   hasNext: false,
-  items: mockDistribution
-}
+  items: mockDistribution,
+};
 
 describe('Waves', () => {
   it('should remove blacklisted addresses from distribution', async () => {
@@ -32,16 +32,16 @@ describe('Waves', () => {
       transfers: [
         {
           recipient: '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF',
-          amount: 525000000
+          amount: 525000000,
         },
         {
           recipient: '3M9hgqcvC6akpVkmTR4mu3NNwd3jcvez5FC',
-          amount: 1050000000
+          amount: 1050000000,
         },
         {
           recipient: '3MKEeLK85TjysNUCkRWDRsuY3mKkNBgqGCw',
-          amount: 1575000000
-        }
+          amount: 1575000000,
+        },
       ],
       fee: 300000,
     });

@@ -4,5 +4,5 @@ process.env = Object.assign(process.env, {
   TOKEN_NAME: 'Tokes',
   WAVES_NODE: 'http://localhost:6869',
   DISTR_MULTIPLIER: 25,
-  DISTR_BLACKLIST: '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF,3PGAv1cZXN93UHd4oZy24WQ9j8GGiVs8HJU'
+  DISTR_BLACKLIST: '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF,3PGAv1cZXN93UHd4oZy24WQ9j8GGiVs8HJU',
 });

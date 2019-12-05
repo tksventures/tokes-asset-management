@@ -1,14 +1,15 @@
 import fs from 'fs';
 import Manager from '../src/lib/manager';
 import Waves from '../src/lib/waves';
-import app, { ask } from '../src/config/interface';
-jest.mock('../src/config/interface')
+import { ask } from '../src/config/interface';
+
+jest.mock('../src/config/interface');
 
 const mockDistribution = {
   '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF': 21000000,
   '3M9hgqcvC6akpVkmTR4mu3NNwd3jcvez5FC': 42000000,
   '3MKEeLK85TjysNUCkRWDRsuY3mKkNBgqGCw': 63000000,
-}
+};
 
 describe('Manager', () => {
   it('should collect the snapshot block height', async () => {
@@ -29,7 +30,7 @@ describe('Manager', () => {
     Waves.broadcastTx = jest.fn().mockResolvedValue(true);
     fs.writeFileSync = jest.fn();
 
-    await Manager.distribute(app, mockDistribution);
+    await Manager.distribute(mockDistribution);
 
     expect(Waves.broadcastTx.mock.calls[0][0]).toMatchObject({
       type: 11,
@@ -38,16 +39,16 @@ describe('Manager', () => {
       transfers: [
         {
           recipient: '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF',
-          amount: 525000000
+          amount: 525000000,
         },
         {
           recipient: '3M9hgqcvC6akpVkmTR4mu3NNwd3jcvez5FC',
-          amount: 1050000000
+          amount: 1050000000,
         },
         {
           recipient: '3MKEeLK85TjysNUCkRWDRsuY3mKkNBgqGCw',
-          amount: 1575000000
-        }
+          amount: 1575000000,
+        },
       ],
       fee: 300000,
     });

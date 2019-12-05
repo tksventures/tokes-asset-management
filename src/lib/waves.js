@@ -1,13 +1,12 @@
 import axios from 'axios';
 import { massTransfer, broadcast } from '@waves/waves-transactions';
 
-const { 
-  WAVES_NODE, 
+const {
+  WAVES_NODE,
   TARGET_ASSET_ID,
   DISTR_BLACKLIST,
   DISTR_MULTIPLIER,
 } = process.env;
-const WAVES_FEE = 100000;
 
 const Waves = {
   async chainHeight() {
@@ -34,7 +33,8 @@ const Waves = {
     let next = true;
     let after = null;
 
-    while(next) {
+    while (next) {
+      /* eslint-disable-next-line */
       const { hasNext, lastItem, items } = await Waves.distributionAtHeight(asset, height, after);
       after = lastItem;
       next = hasNext;
@@ -46,17 +46,15 @@ const Waves = {
         delete distribution[address];
       });
     }
-    
+
     return distribution;
   },
 
   massTransferDistribution(distribution = {}, seed) {
-    const transfers = Object.keys(distribution).map(recipient => {
-      return {
-        recipient,
-        amount: distribution[recipient] * (DISTR_MULTIPLIER || 1) 
-      }
-    })
+    const transfers = Object.keys(distribution).map(recipient => ({
+      recipient,
+      amount: distribution[recipient] * (DISTR_MULTIPLIER || 1),
+    }));
     return massTransfer({
       transfers,
       assetId: TARGET_ASSET_ID,
@@ -65,8 +63,7 @@ const Waves = {
 
   broadcastTx(tx) {
     return broadcast(tx, WAVES_NODE);
-  }
-}
+  },
+};
 
 export default Waves;
-
