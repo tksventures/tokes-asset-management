@@ -1,0 +1,16 @@
+{
+  "execMap": {
+      "js": "node"
+  },
+  "ext": "js",
+  "ignore": [
+      ".hg",
+      "node_modules",
+      ".idea",
+      "public"
+  ],
+  "watch": [
+    "src/"
+  ],
+  "verbose": true
+}

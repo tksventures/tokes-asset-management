@@ -1,0 +1,8 @@
+process.env = Object.assign(process.env, {
+  TOKEN_ASSET_ID: 'Gf7YcYYJN8cBN3SBKyHfmyRu3bM4GfTBTXWRXRNWtM5N',
+  TARGET_ASSET_ID: 'GqsBTnTXjMh94dWnUJNHys3dGbGhKxgST3Z4Enchj5Cz',
+  TOKEN_NAME: 'Tokes',
+  WAVES_NODE: 'http://localhost:6869',
+  DISTR_MULTIPLIER: 25,
+  DISTR_BLACKLIST: '3M4qwDomRabJKLZxuXhwfqLApQkU592nWxF,3PGAv1cZXN93UHd4oZy24WQ9j8GGiVs8HJU',
+});

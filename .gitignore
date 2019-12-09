@@ -1,0 +1,8 @@
+*.db
+*.store
+*.env
+**/node_modules
+env.sh
+backups-temp/*
+etcd-snapshots/*
+*DS_Store*
