@@ -40,12 +40,11 @@ const Manager = {
       return app.close();
     }
 
-    console.log(transfers);
     try {
       transfers.forEach(async (transfer) => {
-        const tx = await Waves.broadcastTx(transfer);
+        await Waves.broadcastTx(transfer);
       });
-      
+
       fs.writeFileSync('distribution.store', JSON.stringify(transfers));
       console.log('Mass Transfer broadcast complete...', transfers);
 
