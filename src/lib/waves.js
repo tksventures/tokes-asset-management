@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { massTransfer, broadcast } from '@waves/waves-transactions';
 
+import utility from './utility';
+
 const {
   WAVES_NODE,
   TARGET_ASSET_ID,
@@ -55,10 +57,13 @@ const Waves = {
       recipient,
       amount: distribution[recipient] * (DISTR_MULTIPLIER || 1),
     }));
-    return massTransfer({
-      transfers,
-      assetId: TARGET_ASSET_ID,
-    }, seed);
+
+    return utility.chunkArray(transfers, 100).map(chunk => {
+      return massTransfer({
+        transfers: chunk,
+        assetId: TARGET_ASSET_ID,
+      }, seed);
+    });
   },
 
   broadcastTx(tx) {
