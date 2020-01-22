@@ -31,7 +31,7 @@ const Manager = {
 
   async distribute(distribution) {
     const seed = await ask('Enter the seed phrase for the distribution account: ');
-    const transfer = Waves.massTransferDistribution(distribution, seed);
+    const transfers = Waves.massTransferDistribution(distribution, seed);
     console.log('Mass Transfer is ready to broadcast...');
 
     const launch = await ask('Please type \'launch\' to broadcast the transfers or press Ctrl+C to cancel...');
@@ -41,10 +41,12 @@ const Manager = {
     }
 
     try {
-      const tx = await Waves.broadcastTx(transfer);
-      console.log('Mass Transfer broadcast complete...', tx);
+      transfers.forEach(async (transfer) => {
+        await Waves.broadcastTx(transfer);
+      });
 
-      fs.writeFileSync('distribution.store', JSON.stringify(tx));
+      fs.writeFileSync('distribution.store', JSON.stringify(transfers));
+      console.log('Mass Transfer broadcast complete...', transfers);
 
       return app.close();
     } catch (er) {

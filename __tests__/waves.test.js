@@ -25,7 +25,7 @@ describe('Waves', () => {
   it('should apply the multiplier to distribution amounts', async () => {
     const massTx = Waves.massTransferDistribution(mockDistribution, 'test seed');
 
-    expect(massTx).toMatchObject({
+    expect(massTx).toMatchObject([{
       type: 11,
       version: 1,
       assetId: 'GqsBTnTXjMh94dWnUJNHys3dGbGhKxgST3Z4Enchj5Cz',
@@ -44,6 +44,6 @@ describe('Waves', () => {
         },
       ],
       fee: 300000,
-    });
+    }]);
   });
 });
